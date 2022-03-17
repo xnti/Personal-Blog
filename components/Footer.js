@@ -4,10 +4,10 @@ import { GitHub } from "@mui/icons-material";
 const Footer = () => {
     return (  
         <Box sx={{maxWidth:1/3, mx:'auto', textAlign:'center', mb:4, mt:8}}>
-            <Typography>
-                all rights reserved © <Link href="https://github.com/xnti"><a>antidev</a></Link>.
+            <Typography color={'primary.contrastText'}>
+                all rights reserved © <Link href="https://github.com/xnti" color={'primary.main'}>antidev</Link>.
             </Typography>
-            <Typography>
+            <Typography color={'primary.contrastText'}>
                 <GitHub/>
             </Typography>
         </Box>

@@ -6,30 +6,37 @@ import { postForSlug, postSlugs } from "../../blogposts";
 import { useEffect } from "react";
 import hljs from "highlight.js";
 import readTime from "../../functions/readTime";
+import { connect } from 'react-redux';
+import { DarkTheme, LightTheme } from '../../functions/themeHandler'
+import { ThemeProvider } from '@mui/system';
 
-const Post = ({ frontmatter, body, time }) => {
+const Post = (props) => {
+    const { frontmatter, body, time } = props;
     useEffect(() => {
         hljs.highlightAll()
     })
     return (
-        <PageLayout PageTitle={frontmatter.title}>
-            <Box>
-                <Typography component="h1" sx={{ fontSize: '2.25rem', fontWeight: 800 }}>
-                    {frontmatter.title}
-                </Typography>
-                <Box sx={{ display: 'flex', flexDirection: 'row', fontStyle:'italic', mt:1, mb:4}}>
-                    <Typography sx={{ color: '#4a5568', flexGrow: 1 }}>
-                        {frontmatter.date}
+        <ThemeProvider theme={props.LightTheme ? LightTheme : DarkTheme}>
+            <PageLayout PageTitle={frontmatter.title}>
+                <Box>
+                    <Typography color={'primary.main'} component="h1" sx={{ fontSize: '2.25rem', fontWeight: 800 }}>
+                        {frontmatter.title}
                     </Typography>
+                    <Box sx={{ display: 'flex', flexDirection: 'row', fontStyle: 'italic', mt: 1, mb: 4 }}>
+                        <Typography color={'primary.dark'} sx={{ /*color: '#4a5568',*/ flexGrow: 1 }}>
+                            {frontmatter.date}
+                        </Typography>
 
-                    <Typography sx={{ color: '#4a5568' }}>
-                        {time} {time > 1 ? <> minutes </> : <> minute </>} to read.
-                    </Typography>
+                        <Typography color={'primary.dark'} /*sx={{ color: '#4a5568' }}*/>
+                            {time} {time > 1 ? <> minutes </> : <> minute </>} to read.
+                        </Typography>
+                    </Box>
+                    <Box color={'primary.dark'}>
+                        <ReactMarkdown children={body} />
+                    </Box>
                 </Box>
-
-                <ReactMarkdown children={body} />
-            </Box>
-        </PageLayout>
+            </PageLayout>
+        </ThemeProvider>
     );
 }
 
@@ -55,4 +62,10 @@ export async function getStaticPaths() {
 }
 
 
-export default Post;
+const mapStateToProps = (state) => {
+    return {
+        LightTheme: state.LightTheme,
+    }
+}
+
+export default connect(mapStateToProps, {})(Post);

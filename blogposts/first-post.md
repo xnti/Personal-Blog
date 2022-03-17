@@ -1,7 +1,7 @@
 ---
-title: "Second Post"
-description: "And I even followed through with a second post!"
-date: 8 January 2020
+title: "First Post"
+description: "And I even followed through with a first post!"
+date: 6 January 2020
 ---
 
 Occaecat Lorem mollit cupidatat elit incididunt non consectetur eiusmod qui adipisicing duis sunt irure minim.

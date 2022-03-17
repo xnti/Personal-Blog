@@ -1,7 +1,15 @@
+// Redux
+import { connect } from 'react-redux'
+
 import MenuIcon from '@mui/icons-material/Menu';
 import { Box, Link } from '@mui/material';
 
-const Header = () => {
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+
+import { F_CHANGE_THEME } from '../redux/actions';
+
+const Header = (props) => {
     return (
         <Box sx={{
             borderBottom: 1,
@@ -42,6 +50,14 @@ const Header = () => {
                                         </Link>
                                     </Box>
                                 </li>
+                                <li className='nav-item text-uppercase fs-5 fw-bold' style={{ cursor: 'pointer' }}>
+                                    <Box component="a" sx={{ p: '0.5rem 1rem' }} color={'primary.main'} onClick={() => props.F_CHANGE_THEME()}>
+                                        {props.LightTheme
+                                            ? <Brightness4Icon />
+                                            : <Brightness7Icon />
+                                        }
+                                    </Box>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -51,4 +67,10 @@ const Header = () => {
     )
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+    return {
+        LightTheme: state.LightTheme,
+    }
+}
+
+export default connect(mapStateToProps, {F_CHANGE_THEME})(Header);
