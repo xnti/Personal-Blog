@@ -18,7 +18,7 @@ const Post = (props) => {
     return (
         <ThemeProvider theme={props.LightTheme ? LightTheme : DarkTheme}>
             <PageLayout PageTitle={frontmatter.title}>
-                <Box>
+                <Box sx={{px: 4}}>
                     <Typography color={'primary.main'} component="h1" sx={{ fontSize: '2.25rem', fontWeight: 800 }}>
                         {frontmatter.title}
                     </Typography>

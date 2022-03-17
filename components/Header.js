@@ -22,7 +22,7 @@ const Header = (props) => {
                 <nav className="navbar navbar-expand-lg">
                     <div className="container">
                         <Box component="a" color={'primary.main'} className="navbar-brand fs-4">
-                            <Link className='text-decoration-none' href='/'>
+                            <Link sx={{fontStyle:"italic"}} className='text-decoration-none fw-bold' href='/'>
                                 <>4nt1d3v</>
                             </Link>
                         </Box>
