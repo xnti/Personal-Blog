@@ -2,7 +2,9 @@
 import { connect } from 'react-redux'
 
 import MenuIcon from '@mui/icons-material/Menu';
-import { Box, Link } from '@mui/material';
+import { Box } from '@mui/material';
+
+import Link from 'next/link';
 
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
@@ -22,8 +24,8 @@ const Header = (props) => {
                 <nav className="navbar navbar-expand-lg">
                     <div className="container">
                         <Box component="a" color={'primary.main'} className="navbar-brand fs-4">
-                            <Link sx={{fontStyle:"italic"}} className='text-decoration-none fw-bold' href='/'>
-                                <>4nt1d3v</>
+                            <Link href={'/'} className='text-decoration-none fw-bold'>
+                                <a>4nt1d3v</a>
                             </Link>
                         </Box>
                         <button className="navbar-toggler text-muted" type="button" data-bs-toggle="collapse" data-bs-target="#antidevNavbar" aria-controls="antidevNavbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,21 +34,21 @@ const Header = (props) => {
 
                         <div className="collapse navbar-collapse" id="antidevNavbar">
                             <ul className='navbar-nav ms-auto text-white'>
-                                <li className='nav-item text-uppercase fs-5 fw-bold' style={{ cursor: 'pointer' }}>
+                                <li className='nav-item text-uppercase fs-5 fw-bold'>
                                     <Box component="a" sx={{ p: '0.5rem 1rem' }} color={'primary.main'}>
-                                        <Link href='/' className='text-decoration-none'>
-                                            <>
+                                        <Link href={'/'} className='text-decoration-none'>
+                                            <a>
                                                 Blog
-                                            </>
+                                            </a>
                                         </Link>
                                     </Box>
                                 </li>
-                                <li className='nav-item text-uppercase fs-5 fw-bold' style={{ cursor: 'pointer' }}>
+                                <li className='nav-item text-uppercase fs-5 fw-bold'>
                                     <Box component="a" sx={{ p: '0.5rem 1rem' }} color={'primary.main'}>
-                                        <Link href='/about' className='text-decoration-none'>
-                                            <>
+                                        <Link href={'/about'} className='text-decoration-none'>
+                                            <a>
                                                 About
-                                            </>
+                                            </a>
                                         </Link>
                                     </Box>
                                 </li>

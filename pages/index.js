@@ -12,12 +12,9 @@ import { connect } from 'react-redux';
 import { DarkTheme, LightTheme } from '../functions/themeHandler'
 
 
-function Home(props) {
-  console.log(props.LightTheme)
+export default function Home(props) {
   return (
-    <ThemeProvider theme={props.LightTheme ? LightTheme : DarkTheme}>
-      <PageLayout PageTitle={"h0m3p4g3"} children={<PostList PostList={props.posts} />} />
-    </ThemeProvider>
+    <PageLayout PageTitle={"h0m3p4g3"} children={<PostList PostList={props.posts} />} />
   )
 }
 
@@ -32,10 +29,3 @@ export async function getStaticProps() {
 }
 
 
-const mapStateToProps = (state) => {
-  return {
-    LightTheme: state.LightTheme,
-  }
-}
-
-export default connect(mapStateToProps, {})(Home);

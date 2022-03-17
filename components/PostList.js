@@ -19,7 +19,7 @@ const Blog = (props) => {
                     const { description, date, title } = frontmatter
                     const readtime = readTime(body);
                     return (
-                        <Link href={`/blog/${slug}`}>
+                        <Link key={slug} href={`/blog/${slug}`}>
                             <a>
                                 <Box className="hvr-underline-from-center w-100" sx={{ px: 4, mt: 2, pb: 2, borderBottom: 1, borderBottomColor: 'primary.main' }} key={slug}>
                                     <Box    >
