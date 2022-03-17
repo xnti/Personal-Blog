@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import { posts } from "../blogposts";
 
 import Link from "next/link";
 import readTime from "../functions/readTime";
